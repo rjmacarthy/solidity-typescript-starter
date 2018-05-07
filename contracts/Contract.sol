@@ -16,7 +16,7 @@ contract Ownable is Base {
 
 contract Contract is Ownable {
     
-    function Contract () public {
+    constructor () public {
         _owner = msg.sender;
     }
 
