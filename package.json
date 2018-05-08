@@ -10,8 +10,8 @@
     "test": "mocha -r ts-node/register -w ./spec/**/*.spec.ts --watch-extensions ts",
     "parse": "ts-node ./parser/parser.ts",
     "watch": "gulp watch",
-    "build:bin": "solcjs ./Contract.sol --abi -o ../abis",
-    "build:abi": "solcjs ./Contract.sol --bin -o ../abis",
+    "build:bin": "solcjs Base.sol Ownable.sol Contract.sol --abi -o ../abis",
+    "build:abi": "solcjs Base.sol Ownable.sol Contract.sol --bin -o ../abis",
     "build": "sh build.sh",
     "clean": "rimraf ./abis"
   },

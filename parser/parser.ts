@@ -43,8 +43,7 @@ var writeInterface = (abis: Array<any>, fileName: string) => {
 }
 
 forEach(abis, (path) => {
-    var read = path;
-    const json = fs.readFileSync(join(read), "utf-8");
+    const json = fs.readFileSync(join(path), "utf-8");
     var abis = JSON.parse(json);
     writeInterface(abis, path);
 });
