@@ -1,5 +1,5 @@
 pragma solidity ^0.4.23;
-import './Ownable.sol';
+import "./Ownable.sol";
 
 contract Contract is Ownable {
     
@@ -16,7 +16,7 @@ contract Contract is Ownable {
         return _name;
     }
 
-     function setName (string name) public returns (string, uint) {
+    function setName (string name) public returns (string, uint) {
         _name = name;
         return (_name, 1);
     }

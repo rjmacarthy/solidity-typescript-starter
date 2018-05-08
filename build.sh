@@ -1,4 +1,5 @@
 #!/bin/sh
+npm run clean
 cd contracts
 solcjs *.sol --abi -o ../abis
 solcjs *.sol --bin -o ../abis

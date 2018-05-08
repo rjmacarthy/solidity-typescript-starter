@@ -32,10 +32,10 @@ var writeInterface = (abis: Array<any>, fileName: string) => {
     fileName = fileName.replace('.abi', '');
     let int = `
     export interface IBaseMethods {
-        call: (options: any, callback?: Function) => Promise<any>,
+        call: (options?: any, callback?: Function) => Promise<any>,
         send: (options: any, callback?: Function) => Promise<any>,
-        estimateGas: (options: any, callback?: Function) => Promise<any>,
-        encodeABI: (options: any, callback?: Function) => Promise<any>
+        estimateGas: (options?: any, callback?: Function) => Promise<any>,
+        encodeABI: () => Promise<any>
     }
     `
     int += `export interface I${fileName} { ${writeInterfaceMethods(abis, fileName)}}`;
