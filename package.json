@@ -7,13 +7,13 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha -r ts-node/register -w ./spec/**/*.spec.ts",
-    "test:watch": "mocha -r ts-node/register -w ./spec/**/*.spec.ts --watch-extensions ts",
+    "test": "mocha -r ts-node/register -w ./spec/**/*.spec.ts --watch-extensions ts",
+    "parse": "ts-node ./parser/parser.ts",
     "watch": "gulp watch",
-    "typechain": "typechain --force --outDir ./types './build/contracts/*.json'",
-    "build:bin": "solcjs ./contracts/Contract.sol --abi -o ../abis",
-    "build:abi": "solcjs ./contracts/Contract.sol --bin -o ../abis",
-    "build" : "sh build.sh"
+    "build:bin": "solcjs ./Contract.sol --abi -o ../abis",
+    "build:abi": "solcjs ./Contract.sol --bin -o ../abis",
+    "build": "sh build.sh",
+    "clean": "rimraf ./abis"
   },
   "keywords": [
     "truffle",
@@ -26,12 +26,14 @@
     "@types/bluebird": "^3.5.20",
     "@types/chai": "^4.1.3",
     "@types/chai-as-promised": "^7.1.0",
+    "@types/glob": "^5.0.35",
     "@types/mocha": "^5.2.0",
     "@types/node": "^10.0.3",
     "bluebird": "^3.5.1",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "ganache-cli": "^6.1.0",
+    "glob": "^7.1.2",
     "gulp": "^3.9.1",
     "mocha": "^5.1.1",
     "truffle-contract": "^3.0.5",
@@ -40,5 +42,9 @@
     "typescript": "^2.8.3",
     "web3": "^1.0.0-beta.34",
     "web3-typescript-typings": "^0.10.2"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.108",
+    "loadash": "^1.0.0"
   }
 }

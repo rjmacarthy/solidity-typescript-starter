@@ -1,18 +1,5 @@
-pragma solidity ^0.4.17;
-
-
-contract Base {
-    address _owner;
-    uint public counter = 0;
-}
-
-
-contract Ownable is Base {
-    modifier isOwner {
-        require(_owner == msg.sender);
-        _;
-    }
-}
+pragma solidity ^0.4.23;
+import './Ownable.sol';
 
 contract Contract is Ownable {
     
@@ -25,7 +12,12 @@ contract Contract is Ownable {
         return counter;
     }
 
-    function getName () pure public returns (string) {
-        return "Hello";
+    function getName () view public returns (string) {
+        return _name;
+    }
+
+     function setName (string name) public returns (string, uint) {
+        _name = name;
+        return (_name, 1);
     }
 }

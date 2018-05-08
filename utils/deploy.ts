@@ -1,8 +1,8 @@
 import * as fs from 'fs';
-import * as abi from '../build/contracts/Contract.json';
 import { readFileSync } from "fs";
 import { join } from "path";
 import { web3, getAccounts } from '../utils/web3';
+import * as config from '../config'
 
 export const deploy = async (contractName: string) => {
   const dirPath = join(__dirname, "../abis");
@@ -14,7 +14,7 @@ export const deploy = async (contractName: string) => {
   const contract = new web3.eth.Contract(abi, { from: accounts[0] });
   const createdContract = await contract.deploy({ data: code }).send({
     from: accounts[0],
-    gas: '1000000'
+    gas: config.GAS
   });
   return createdContract;
 }
