@@ -1,5 +1,3 @@
-#solidity-typescript-started
-
 Auto generated typescript interfaces based on solidity smart contract abi.
 
 
