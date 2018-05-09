@@ -30,8 +30,13 @@ var writeInterface = (abis: Array<any>, fileName: string) => {
     !fs.existsSync('./interfaces') && fs.mkdirSync('./interfaces/');
     fileName = fileName.replace('abis/', '');
     fileName = fileName.replace('.abi', '');
-    let int = `import { IBaseMethods } from './base/IBaseMethods';`
+    let int = ``
+    int += `
+    // Auto generated interface using utils/abi-parser.ts
+    import { IBaseMethods } from './base/IBaseMethods';
+    `;
     int += `export interface I${fileName} extends IBaseMethods { ${writeInterfaceMethods(abis, fileName)}}`;
+    console.log(int)
     fs.writeFileSync(`./interfaces/${fileName + '.ts'}`, int);
 }
 
