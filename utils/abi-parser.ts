@@ -36,7 +36,6 @@ var writeInterface = (abis: Array<any>, fileName: string) => {
     import { IBaseMethods } from './base/IBaseMethods';
     `;
     int += `export interface I${fileName} extends IBaseMethods { ${writeInterfaceMethods(abis, fileName)}}`;
-    console.log(int)
     fs.writeFileSync(`./interfaces/${fileName + '.ts'}`, int);
 }
 
