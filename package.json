@@ -7,13 +7,14 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha -r ts-node/register -w ./spec/**/*.spec.ts --watch-extensions ts",
-    "parse": "ts-node ./parser/parser.ts",
-    "watch": "gulp watch",
-    "build:bin": "solcjs Base.sol Ownable.sol Contract.sol --abi -o ../abis",
     "build:abi": "solcjs Base.sol Ownable.sol Contract.sol --bin -o ../abis",
-    "build": "sh build.sh",
-    "clean": "rimraf ./abis"
+    "build:bin": "solcjs Base.sol Ownable.sol Contract.sol --abi -o ../abis",
+    "build": "sh ./utils/build.sh",
+    "clean": "rimraf ./abis",
+    "parse": "ts-node ./utils/abi-parser.ts",
+    "test": "mocha -r ts-node/register -w ./spec/**/*.spec.ts --watch-extensions ts",
+    "watch:windows": "gulp watch:windows",
+    "watch": "gulp watch"
   },
   "keywords": [
     "truffle",

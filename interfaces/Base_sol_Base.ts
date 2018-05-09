@@ -1,8 +1,1 @@
-
-    export interface IBaseMethods {
-        call: (options?: any, callback?: Function) => Promise<any>,
-        send: (options: any, callback?: Function) => Promise<any>,
-        estimateGas: (options?: any, callback?: Function) => Promise<any>,
-        encodeABI: () => Promise<any>
-    }
-    export interface IBase_sol_Base { counter : () => IBaseMethods;_name : () => IBaseMethods;}
+import { IBaseMethods } from './base/IBaseMethods';export interface IBase_sol_Base extends IBaseMethods { counter : () => IBaseMethods;_name : () => IBaseMethods;}

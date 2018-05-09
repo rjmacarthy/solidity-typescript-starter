@@ -18,7 +18,7 @@ interface IAbi {
 
 var writeInterfaceMethods = (abis: Array<any>, fileName: any) => {
     var interfaceMethods = ``;
-    abis.forEach((abi: IAbi) => {
+    forEach(abis, (abi: IAbi) => {
         if (abi.name) {
             interfaceMethods += `${abi.name} : (${abi.inputs.map(x => x.name)}) => ${abi.outputs && abi.outputs.length ? 'IBaseMethods' : 'void'};`;
         }
@@ -30,15 +30,8 @@ var writeInterface = (abis: Array<any>, fileName: string) => {
     !fs.existsSync('./interfaces') && fs.mkdirSync('./interfaces/');
     fileName = fileName.replace('abis/', '');
     fileName = fileName.replace('.abi', '');
-    let int = `
-    export interface IBaseMethods {
-        call: (options?: any, callback?: Function) => Promise<any>,
-        send: (options: any, callback?: Function) => Promise<any>,
-        estimateGas: (options?: any, callback?: Function) => Promise<any>,
-        encodeABI: () => Promise<any>
-    }
-    `
-    int += `export interface I${fileName} { ${writeInterfaceMethods(abis, fileName)}}`;
+    let int = `import { IBaseMethods } from './base/IBaseMethods';`
+    int += `export interface I${fileName} extends IBaseMethods { ${writeInterfaceMethods(abis, fileName)}}`;
     fs.writeFileSync(`./interfaces/${fileName + '.ts'}`, int);
 }
 

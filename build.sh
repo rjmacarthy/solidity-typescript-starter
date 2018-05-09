@@ -1,4 +1,5 @@
 #!/bin/sh
+echo "Bulding contracts..."
 npm run clean
 cd contracts
 solcjs *.sol --abi -o ../abis
