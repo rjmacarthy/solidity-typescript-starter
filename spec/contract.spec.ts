@@ -19,27 +19,16 @@ describe('Contract spec', () => {
         expect(counter).to.equal('0');
     });
 
-    it('Can get the name', async function () {
-        var name = await methods.getName().call();
-        expect(name).to.equal('Hello');
-    });
-
-    it('Can set a name correctly', async function () {
-        var setName = await methods.setName('World').send({ from: accounts[0] });
-        assert.isNotNull(setName);
-        var name = await methods.getName().call();
-        expect(name).to.equal('World');
-    });
-
-    it('Can hold the state', async function () {
-        var name = await methods.getName().call();
-        expect(name).to.equal('World');
-    });
-
-    it('Can increment the counter', async function () {
+    it('Can increment the count', async function () {
+        await methods.incrementCounter().send({ from: accounts[0] });
         var counter = await methods.counter().call();
-        expect(counter).to.equal('0');
-        var counter = await methods.incrementCounter().call();
         expect(counter).to.equal('1');
     });
+
+    it('Can decrement the count', async function () {
+        await methods.decrementCounter().send({ from: accounts[0] });
+        var counter = await methods.counter().call();
+        expect(counter).to.equal('0');
+    });
+
 })
