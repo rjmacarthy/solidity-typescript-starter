@@ -14,18 +14,18 @@ describe('Contract spec', () => {
         methods = deployed.methods;
     });
 
-    it('Can get the count', async function () {
+    it('Can get the count', async () => {
         var counter = await methods.counter().call()
         expect(counter).to.equal('0');
     });
 
-    it('Can increment the count', async function () {
+    it('Can increment the count', async () => {
         await methods.incrementCounter().send({ from: accounts[0] });
         var counter = await methods.counter().call();
         expect(counter).to.equal('1');
     });
 
-    it('Can decrement the count', async function () {
+    it('Can decrement the count', async () => {
         await methods.decrementCounter().send({ from: accounts[0] });
         var counter = await methods.counter().call();
         expect(counter).to.equal('0');
