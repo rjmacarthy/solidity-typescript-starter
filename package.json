@@ -10,7 +10,7 @@
     "build:abi": "solcjs Base.sol Ownable.sol Contract.sol --bin -o ../abis",
     "build:bin": "solcjs Base.sol Ownable.sol Contract.sol --abi -o ../abis",
     "build": "sh ./utils/build.sh",
-    "clean": "rimraf ./abis",
+    "clean": "rimraf ./abis && rimraf ./algernon",
     "parse": "ts-node ./utils/abi-parser.ts",
     "test": "mocha -r ts-node/register -w ./spec/**/*.spec.ts --watch-extensions ts",
     "watch:windows": "gulp watch:windows",
@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "@types/lodash": "^4.14.108",
+    "algernon": "0.0.9",
     "cryptiles": "^4.1.2",
     "extend": "^3.0.2",
     "loadash": "^1.0.0",

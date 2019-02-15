@@ -1,12 +1,12 @@
 import { deploy } from '../utils/deploy';
 import { expect, assert } from "chai";
 import { web3, getAccounts } from '../utils/web3';
-import { IContract_sol_Contract } from '../interfaces/Contract_sol_Contract';
+import { Contract } from '../algernon/Contract';
 import * as config from '../config';
 
 describe('Contract spec', () => {
     let accounts: Array<string>;
-    let methods: IContract_sol_Contract;
+    let methods: Contract;
 
     before(async () => {
         const deployed = await deploy(config.CONTRACT_NAME);
