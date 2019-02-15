@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "@types/lodash": "^4.14.108",
+    "cryptiles": "^4.1.2",
     "extend": "^3.0.2",
     "loadash": "^1.0.0",
     "lodash": "^4.17.11",
