@@ -1,4 +1,3 @@
-
-var Algernon = require('algernon');
-import { join } from 'path';
-new Algernon({ path: join(__dirname, '../abis') }).parse();
+import { join } from 'path'
+import Algernon from 'algernon'
+new Algernon({ path: join(__dirname, '../abis') }).parse()

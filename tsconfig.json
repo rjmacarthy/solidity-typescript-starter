@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
+    "esModuleInterop": true,
     "strict": true,
     "sourceMap": false,
+    "noImplicitAny": false,
     "types": [
       "node",
       "mocha"

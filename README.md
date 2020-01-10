@@ -12,11 +12,6 @@ Linux
   gulp watch
 ```
 
-Windows
-```
-  gulp watch:windows
-```
-
 **Building**
 
 This will clean and build new contract interfaces using the Algernon library, and write the interfaces to the `./algernon` folder.
