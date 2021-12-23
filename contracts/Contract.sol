@@ -1,9 +1,10 @@
-pragma solidity ^0.6.1;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.11;
 import "./Ownable.sol";
 
 contract Contract is Ownable {
     
-    constructor () public {
+    constructor () {
         _owner = msg.sender;
     }
 

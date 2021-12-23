@@ -1,4 +1,5 @@
-pragma solidity ^0.6.1;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.11;
 import "./Base.sol";
 
 contract Ownable is Base {

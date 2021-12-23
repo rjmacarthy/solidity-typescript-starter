@@ -1,1 +1,0 @@
-import { EthBase } from './EthBase'; export interface Contract extends EthBase { undefined : () => void;counter : () => EthBase;decrementCounter : () => EthBase;incrementCounter : () => EthBase;}
